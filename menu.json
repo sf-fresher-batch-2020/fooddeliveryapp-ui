@@ -1,0 +1,147 @@
+[
+    {
+      "name": "Subway Maharaja",
+      "id": 20423,
+      "rating": 4.2,
+      "price" : 199,
+
+      "tags": ["American", "Fast Food"],
+      "img": ".././images/1.png"
+    },
+    {
+      "name": "Burger and Fries",
+      "id": 27213,
+      "rating": 3.8,
+      "price" : 199,
+
+      "tags": ["North Indian", "Chinese", "Mughlai", "Fast Food"],
+      "img": ".././images/2.jpg"
+    },
+    {
+      "name": "Sweets",
+      "id": 52778,
+      "rating": 3.4,
+      "price" : 199,
+
+      
+      "tags": ["North Indian", "Chinese", "Sweets"],
+      "img": ".././images/3.jpg"
+    },
+    {
+      "name": "Rice",
+      "id": 13018,
+      "rating": 3.9,
+      "price" : 199,
+
+      "tags": ["Indian", "Chinese", "North Indian"],
+      "img": ".././images/4.jpg"
+    },
+    {
+      "name": "Chicken Sticks",
+      "id": 1015,
+      "rating": 4.0,
+      "price" : 199,
+
+      "tags": ["Chinese", "Fast Food"],
+      "img": ".././images/5.jpg"
+    },
+    {
+      "name": "South Dosa",
+      "id": 23893,
+      "rating": 4.1,
+      "price" : 199,
+
+      "tags": ["American", "South Indian"],
+      "img": ".././images/6.jpg"
+    },
+    {
+      "name": "Chinese Roll",
+      "id": 30361,
+      "rating": 4.1,
+      "price" : 199,
+
+      "tags": ["Chinese", "Thai"],
+      "img": ".././images/7.jpg"
+    },
+    {
+      "name": "Choclate Shakes",
+      "id": 63660,
+      "rating": 4.4,
+      "price" : 199,
+
+      "tags": ["Cafe", "Italian", "Healthy Food"],
+      "img": ".././images/8.jpg"
+    },
+    {
+      "name": "Royal Spice",
+      "id": 29123,
+      "rating": 4.1,
+      "price" : 199,
+      "tags": ["Indian", "Chinese", "Continental", "Snacks"],
+      "img": ".././images/9.jpg"
+    },
+    {
+      "name": "Madurai Meenakshi Bhawan",
+      "id": 26761,
+      "rating": 4.2,
+      "price" : 199,
+
+      "tags": ["American", "South Indian"],
+      "img": ".././images/10.jpg"
+    },
+    {
+      "name": "Koolchas",
+      "id": 68159,
+      "rating": 4.3,
+      "price" : 199,
+
+      "tags": ["North Indian", "Fast Food"],
+      "img": ".././images/11.jpg"
+    },
+    {
+      "name": "Punjabi Chaap Corner",
+      "id": 49213,
+      "rating": 3.8,
+      "price" : 199,
+
+      "tags": ["North Indian", "Fast Food"],
+      "img": ".././images/12.jpg"
+    },
+    {
+      "name": "Burger BC",
+      "id": 21340,
+      "rating": 4.1,
+      "price" : 199,
+
+      "tags": ["Fast Food","Continental"],
+      "img": ".././images/13.jpg"
+    },
+    {
+      "name": "Mucchad's SamosaZz & More",
+      "id": 17281,
+      "rating": 4.1,
+      "price" : 199,
+
+      "tags": ["Mughlai", "North Indian", "Street Food", "Fast Food"],
+      "img": ".././images/14.jpg"
+    },
+    {
+      "name": "The Burger Homes",
+      "id": 63913,
+      "rating": 3.9,
+      "price" : 199,
+
+      "tags": ["North Indian", "Fast Food"],
+      "img": ".././images/15.jpg"
+    },
+    {
+      "name": "STANLEY KA DIBBA",
+      "id": 51766,
+      "rating": 3.7,
+      "price" : 199,
+
+      "tags": ["American", "Thalis", "Indian", "Fast Food"],
+      "img": ".././images/16.jpg"
+    }
+
+  ] 

@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+    <a class="navbar-brand " href="index.html" >YUM-YUM!!!</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-1 mt-lg-0 ml-auto ">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html" data-logged="false">Home </a>
+            </li>
+            <li class="nav-item" data-logged="false">
+                <a class="nav-link" href="#">About us</a>
+            </li>
+            <li class="nav-item dropdown"data-loggedin="true">
+                <!--a class="nav-link dropdown-toggle " href="#" id="dropdownId" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Services</a-->
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                    <a class="dropdown-item" href="newmenu.html" data-loggedin="true">Menu</a>
+                    <!--a class="dropdown-item" href="list_ticket.html" data-loggedin="true">List Ticket</a-->
+                </div>
+            </li>
+            <li class="nav-item" data-logged="false">
+                <a class="nav-link" href="#">Contact Us</a>
+            </li>
+            </ul>
+    </div>
+
+            <div class="navbar-collapse collapse" id="collapsibleNavId">
+                <ul class="navbar-nav  mt-1 mt-lg-0 ml-auto ">
+            <li class="nav-item  ">
+                <a class="nav-link" href="login.html" data-loggedin="false">Login</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="register.html" data-loggedin="false">Register</a>
+            </li>
+            <li class="nav-item  ">
+                <a class="nav-link" href="" data-loggedin="true" style="display: block;">Welcome </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="" onclick="logout()" data-loggedin="true">(Logout) </a>
+            </li>
+        </ul>
+       
+    </div>
+</nav>
+<script>
+    var user = JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
+    console.log("LOGGED_IN_USER", user);
+    if(user){
+        console.log("User is logged in");
+        // Hide menus which has data-loggedin=false
+        // Show menus which has data-loggedin=true
+        document.querySelectorAll(".nav-link[data-loggedin=false] , .nav-item[data-loggedin=false] , .dropdown-item[data-loggedin=false]").forEach(obj => obj.style.display= "none" );
+        document.querySelectorAll(".nav-link[data-loggedin=true] , .nav-item[data-loggedin=true] , .dropdown-item[data-loggedin=true]").forEach(obj => obj.style.display= "block" );
+    }
+    else{
+        
+        console.log("User is not logged in");
+        // Hide menus which has data-loggedin=true
+        // Show menus which has data-loggedin=false
+        document.querySelectorAll(".nav-link[data-loggedin=true] , .nav-item[data-loggedin=true] , .dropdown-item[data-loggedin=true]").forEach(obj => obj.style.display= "none" );
+        document.querySelectorAll(".nav-link[data-loggedin=false] , .nav-item[data-loggedin=false] , .dropdown-item[data-loggedin=false]").forEach(obj => obj.style.display= "block" );
+    
+    }
+    
+    function logout(){
+       // localStorage.clear();
+        localStorage.removeItem("LOGGED_IN_USER");
+        window.location.href = "login.html";
+    }
+    
+    </script>

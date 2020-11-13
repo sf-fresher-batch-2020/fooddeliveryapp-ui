@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Food Ordering App!!</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+  .rating > span:hover:before {
+      content: "\3005";
+      position: absolute
+      size="14";
+   }
+   .rating {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+    }
+    .rating > span:hover:before,
+    .rating > span:hover ~ span:before {
+       content: "\2605";
+       position: absolute;
+    }
+    .rating {
+      unicode-bidi: bidi-override;
+      direction:rtl;
+    }
+
+    .rating > span {
+      display: inline-block;
+      position: relative;
+      width: 1.1em;
+    }
+    .rating > span:hover:before,
+    .rating > span:hover ~ span:before {
+       content: "\2605";
+       position: absolute;
+    }
+  </style>
+</head>
+<body>
+   <form method="post">
+    <div style="max-width: 400px;">
+    </div>
+    <!--div style="padding-bottom: 18px;font-size : 24px;">Product Review</div>
+    <div style="padding-bottom: 18px;">Reviewer<span style="color: red;"> *</span><br/>
+    <input type="text" id="data_2" name="data_2" style="max-width : 450px;" class="form-control"/>
+    </div>
+    <div style="padding-bottom: 18px;">Which product did you buy?<br/>
+    <select id="data_3" name="data_3" style="max-width : 450px;" class="form-control"><option>Product 1</option>
+    <option>Product 2</option>
+    <option>Product 3</option>
+    <option>Product 4</option>
+    <option>Product 5</option>
+    </select>
+    </div-->
+  
+    <div style="padding-bottom: 18px;">Rate this product<span style="color: red;"> *</span><br/>
+      
+    <select id="data_4" name="data_4" style="max-width : 150px;" class="form-control"><option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    </select>
+    </div>
+    <!--div style="padding-bottom: 18px;">Title<span style="color: red;"> *</span><br/>
+    <input type="text" id="data_5" name="data_5" style="max-width : 450px;" class="form-control"/>
+    </div>
+    <div style="padding-bottom: 18px;">Pros<br/>
+    <textarea id="data_6" false name="data_6" style="max-width : 450px;" rows="3" class="form-control"></textarea>
+    </div>
+    <div style="padding-bottom: 18px;">Cons<br/>
+    <textarea id="data_7" false name="data_7" style="max-width : 450px;" rows="3" class="form-control"></textarea>
+    </div-->
+    <div style="padding-bottom: 18px;">Review<span style="color: red;"> *</span><br/>
+    <textarea id="data_8" false name="data_8" style="max-width : 450px;" rows="9" class="form-control"></textarea>
+    </div>
+    <div style="padding-bottom: 18px;">Would you recommend this product?<br/>
+    <span><input type="radio" id="data_9_0" name="data_9" value="Yes"/> Yes</span><br/>
+    <span><input type="radio" id="data_9_1" name="data_9" value="No"/> No</span><br/>
+    <span><input type="radio" id="data_9_2" name="data_9" value="I am not sure"/> I am not sure</span><br/>
+    </div>
+    <div>
+        <!--a href="visitagn.html" class="view-menu" >Submit here</a-->
+        <button onclick="myFunction()">Submit here!!</button>
+
+	<script>
+    function myFunction() {
+
+		 alert("Data saved successfully !");  
+         alert(true);
+         
+    }
+
+    </script>
+
+    </div>
+    <!--div style="padding-bottom: 18px;"><input name="skip_Submit" value="Submit" type="submit"/></div-->
+    
+    <div>
+    <script type="text/javascript"></script>
+    </div>
+    </form>
+  </div>
+    
+    <!--script type="text/javascript">
+    function validateForm() {
+    if (isEmpty(document.getElementById('data_2').value.trim())) {
+    alert('Reviewer is required!');
+    return false;
+    }
+    if (isEmpty(document.getElementById('data_5').value.trim())) {
+    alert('Title is required!');
+    return false;
+    }
+    if (isEmpty(document.getElementById('data_8').value.trim())) {
+    alert('Review is required!');
+    return false;
+    }
+    return true;
+    }
+    function isEmpty(str) { return (str.length === 0 || !str.trim()); }
+    function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
+    return isEmpty(email) || re.test(email);
+    }
+    </script-->
+
+
+    <div class="rating">
+        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </div>
+        <script src="modules/util.js"></script>
+        <script>
+          let checkoutIdStr = getParameterByName("checkoutid");
+        console.log("Query Param: checkoutid ", checkoutIdStr);
+        if (checkoutIdStr) {
+            let checkoutid = parseInt(checkoutIdStr);
+            console.log(checkoutid);
+           
+        }
+        </script>
+</body>
+</html>

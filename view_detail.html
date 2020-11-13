@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.css">
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
+        rel="stylesheet">
+    <script src="modules/index.js"></script>
+    <script src="modules/checkoutservice.js"></script>
+    <link rel="stylesheet" href="css/view-ticket.css">
+</head>
+
+<body>
+    <header id="header">
+        <!-- Load Header content-->
+    </header>
+    <main class="container-fluid">
+        <div id="page-content">
+            <div class="about-content ">
+                <h2 class=" row justify-content-center"><span>View Complete Detail Of Order</span></h2>
+            </div>
+        </div>
+    </main>
+    <hr>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <table border="1" class="table" id="tablestyle">
+                    <thead>
+                        <tr>
+                            <th>Token Id</th>
+                        </tr>
+                        <tr>
+                            <th>Customer Name</th>
+                        </tr>
+
+                        <tr>
+                            <th> Email </th>
+                        </tr>
+
+                        <tr>
+                            <th> Quantity</th>
+                        </tr>
+
+                        <tr>
+                            <th>Total Amount Bill</th>
+                        </tr>
+                        <tr>
+                            <th>Order Status</th>
+                        </tr>
+                        <tr>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+
+            </div>
+            <div class="col-md-9">
+                <table class="table">
+                    <tbody id="details">
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <script src="modules/util.js"></script>
+    <script>
+        $("#header").load("components/_header.html");
+    </script>
+    <script>
+        function viewdetails(checkoutid) {
+
+            console.log(checkoutid);
+            var checkOutUser = new CheckOutDetail().list();
+            console.log(checkOutUser);
+            var checkOutUser = JSON.parse(localStorage.getItem("CHECKOUT")) || [];
+            let obj = checkOutUser.find(obj => obj.id == checkoutid);
+            console.log(obj);
+            let newticket = "";
+            let content = "";
+            if (obj) {
+              
+                let closeBtn = `<button id='close' class="btn btn-secondary" onclick="close1(${obj.id})">Cancel Order</button>`;
+                let reviewBtn = `<a href="review.html?checkoutid=${obj.id}"><button class="btn btn-success">Give Review</button></a>`;
+               
+                content += `<tr ><td>${obj.id}</td></tr><td>${obj.name}</td></tr>
+                    <tr><td>${obj.email}</td></tr>
+                    <tr><td>${obj.amount}</td></tr>
+                    <tr><td>${obj.totalamount}</td></tr><tr><td>${obj.checkoutstatus}</td></tr>
+                    <tr><td>${closeBtn}&nbsp;${reviewBtn}</td></tr>`;
+                /*newticket = obj.id + '<br>' + obj.title + '<br>' + obj.cname + '<br>' + obj.email + '<br>' + obj.department + '<br>' + obj.Team + '<br>' + obj.priority
+                    + '<br>' + obj.textarea + '<br>' + obj.tel + '<br>' + obj.ticketstatus + '<br>' + obj.date + '<br>' + closeBtn + '<br>' + assignTo;
+*/
+            } console.log(newticket);
+            document.querySelector("#details").innerHTML = content;
+        }
+
+        function close1(id) {
+            var ticketid;
+            var checkOutUser = new CheckOutDetail().list();
+            var checkOutUser = JSON.parse(localStorage.getItem("CHECKOUT")) || [];
+            let index = checkOutUser.findIndex(obj => obj.id == id); // This should return index
+
+            let checkoutObj = checkOutUser[index];
+            //update ticket status to close
+            checkoutObj["checkoutstatus"] = "Close";
+            //update the modified object to tickets array
+            checkOutUser[index] = checkoutObj;
+
+            //update in localStorage
+            localStorage.setItem("CHECKOUT", JSON.stringify(checkOutUser));
+            location.reload();
+
+        }
+        let checkoutIdStr = getParameterByName("checkoutid");
+        console.log("Query Param: checkoutid ", checkoutIdStr);
+        if (checkoutIdStr) {
+            let checkoutid = parseInt(checkoutIdStr);
+            console.log(checkoutid);
+            viewdetails(checkoutid);
+        }
+    </script>
+   
+</body>
+
+</html>
