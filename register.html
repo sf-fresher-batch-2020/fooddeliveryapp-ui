@@ -17,7 +17,7 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
         rel="stylesheet">
    <script src="index.js"></script>
-  <script src="modules/registerservices.js"></script>
+  <script src="modules/Userservice.js"></script>
    </style>
    
    <div data-spy="scroll" data-target="#navId">
@@ -56,10 +56,10 @@
                     <input type="date" value="" id="dob"></br>
                     <div class="btn-group btn-group-toggle" data-toggle="buttons" >
                     <label class="btn btn-success">
-                    <input type="radio" name="login_type" value="u" id="u">user
+                    <input type="radio" name="role" value="USER" id="u">user
                     </label>
                     <label class="btn btn-danger">
-                    <input type="radio" name="login_type" value="Admin" id="Admin">Admin
+                    <input type="radio" name="role" value="ADMIN" id="Admin">Admin
                    </label>
                 </div>
             </br><br/>
@@ -181,30 +181,36 @@
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
             var DOB = document.getElementById("dob").value;
-            let logintypeOptions = document.getElementsByName("login_type");
+            let role = document.getElementsByName("role");
            
-            for (let option of logintypeOptions) {
+            for (let option of role) {
                 if (option.checked) {
-                    logintype = option.value;
+                    role = option.value;
                     break;
                 }
             }
-            let generateUserId =  Math.floor(100 + Math.random() * 900);
-            var userObj = { "Id":generateUserId, "name": Name, "email": email, "password": password, "dob": DOB, "logintype": logintype };
+            var userObj = { "name": Name, "email": email, "password": password, "dob": DOB, "role": role };
             console.log(userObj);
-            let registerserviceObj = new RegisterService();
-            let result = registerserviceObj.register(userObj);
+            let registerserviceObj = new UserService();
+            
+             
+            let emailAlreadyExists= registerserviceObj.isEmailExists(email);
+            if( emailAlreadyExists)
+            {
+                alert("Email Already Exists");
+            }
+            else{
+                let result = registerserviceObj.register(userObj);
             if (result == "success") {
-                alert("registered successfully");
+               alert("registered successfully");
                 window.location.href = "login.html";
             }
             else {
                 alert("registration failed");
             }
-
-
+            }
+         
         }
-       
     </script>
    
 </body>
