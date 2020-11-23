@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <!-- Font Awesome Icon Library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<script src="modules/util.js"></script>
 <style>
   .rating > span:hover:before {
       content: "\3005";
@@ -97,10 +97,9 @@
 
 	<script>
     function myFunction() {
-
-		 alert("Data saved successfully !");  
-        
-         
+       event.preventDefault();
+     alert("Data saved successfully !");  
+    
     }
 
     </script>
@@ -141,7 +140,7 @@
     <div class="rating">
         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
         </div>
-        <script src="modules/util.js"></script>
+        
         <script>
           let checkoutIdStr = getParameterByName("checkoutid");
         console.log("Query Param: checkoutid ", checkoutIdStr);
