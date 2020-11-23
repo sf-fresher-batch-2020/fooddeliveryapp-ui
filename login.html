@@ -18,7 +18,7 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
         rel="stylesheet">
     <script src="modules/index.js"></script>
-    <script src="modules/loginservices.js"></script>
+    <script src="modules/Userservice.js"></script>
 </head>
 
 <body>
@@ -36,10 +36,10 @@
                     <input type="email" name="mail" id="mail" required autofocus></br>
                     <labe>Password</labe>
                     <input type="password" name="pass" id="pass" required> </br>
-                    <select name="" id="logintype">
+                    <select name="" id="role">
                         <option value="">Select One</option>
-                        <option value="u" id="u">User</option>
-                        <option value="Admin" id="Admin">Admin</option>
+                        <option value="USER" id="USER">User</option>
+                        <option value="ADMIN" id="ADMIN">Admin</option>
                     </select>
                     <div class="row justify-content-center">
                         <input class="btns" type="submit" value="login">
@@ -156,11 +156,11 @@
 
     </footer>
     <script>
-        $("#header").load("components/_header.html");
-    </script>
+        $("#header").load("header.html");
+      </script>
     <script>
 
-        function login() {
+        `function login() {
             event.preventDefault();
             // Step 1: Get Form Values
             let email = document.querySelector("#mail").value;
@@ -174,21 +174,53 @@
             var loginserviceobj = new LoginService();
             loginserviceobj.login(email, password, logintype);
             var user = loginserviceobj.login(email, password, logintype);
+
             if (user) {
                 window.location.href = "sss.html";
             }
+            else if (user.role == "ADMIN") {
+                    window.location.href = "admindashboard.html";
+                }
             else {
                 document.querySelector("#message").innerHTML = "<div class='alert alert-danger'>Invalid Email or Password</div>";
             }
             
 
-            }
+            }`
+            function login() {
+            event.preventDefault();
+            // Step 1: Get Form Values
+            let email = document.querySelector("#mail").value;
+            let password = document.querySelector("#pass").value;
+            let role = document.getElementById("role").value;
+            var user = document.getElementById('USER').value;
+            var admin = document.getElementById('ADMIN').value;
+            //Step 2: Store all form values in a single object, so that it will easy to send 
+            let obj = { "email": email, "password": password, "role": role };
+            console.log(obj);
+            var loginserviceobj = new UserService();
 
-        
+            var user = loginserviceobj.login(email, password, role);
+            console.log(user);
+            if (user) {
+                if (user.role == 'USER') {
+                    window.location.href = "menu.html";
+                }
+                else if (user.role == "ADMIN") {
+                    window.location.href = "admindashboard.html";
+                }
+            }
+            else {
+                document.querySelector("#message").innerHTML = "<div class='alert alert-danger'>Invalid Email or Password</div>";
+            }
+        }
+
 
 
 
     </script>
+
+    
 
 </body>
 
